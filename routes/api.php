@@ -19,12 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/login','API\AuthController@login');
 Route::post('/register','API\AuthController@register');
 Route::get('/logout','API\AuthController@logout');
-Route::middleware('APIToken')->get('/index','API\FlimsController@index');
-// Route::middleware('auth:api')->get('/index','API\FlimsController@index');
-// Route::get('/index','API\FlimsController@index');
-
-// Route::post('/auth/token', 'Auth\LoginController@auth');
-//  Route::middleware('auth:api')->post('/login','AuthController@postLogin');
-
-// post('/register','AuthController@postRegister')
-
+Route::middleware('APIToken')->get('/flims','API\FlimsController@index');
+Route::middleware('APIToken')->post('/saveComment','API\CommentController@saveComment');
+Route::middleware('APIToken')->post('/saveFlim','API\FlimsController@saveFlim');
+Route::middleware('APIToken')->get('/showFlim','API\FlimsController@showFlim');
