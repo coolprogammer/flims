@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Flim extends Model
+class Comment extends Model
 {
 
     /**
@@ -13,16 +13,17 @@ class Flim extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'realease_date', 'rating', 'ticket_price', 'country', 'genre', 'photo'
+        'name', 'comment', 'user_id', 'flim_id'
     ];
 
     /**
-     * The has Many Relationship
+     * The belongs to Relationship
      *
      * @var array
      */
-    public function comments()
+    public function flims()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Flim::class);
     }
+
 }
